@@ -47,3 +47,9 @@ Route::group(['prefix'=>'admin'], function () {
         return 'dashboard';
     });
 });
+
+Route::get('/', function () {
+    return redirect('welcome');
+});
+use App\Http\Controllers\HomeController;
+Route::get('user/{id}',[HomeController::class,'show']);
