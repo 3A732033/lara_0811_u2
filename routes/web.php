@@ -13,16 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',function(){
-    return redirect('r1');
-});
-
-Route::get('r1', function(){
-    return redirect('r2');
-});
-Route::get('r2', function(){
-    return view('welcome');
-});
+//Route::get('/',function(){
+//    return redirect('r1');
+//});
+//
+//Route::get('r1', function(){
+//    return redirect('r2');
+//});
+//Route::get('r2', function(){
+//    return view('welcome');
+//});
 
 Route::get('hello/{name?}',function($name='Everybody'){
     return'Hello,'.$name;
@@ -46,8 +46,6 @@ Route::group(['prefix'=>'admin'], function () {
     });
 });
 
-//Route::get('/', function () {
-//    return redirect('welcome');
-//});
-//use App\Http\Controllers\HomeController;
+Route::get('/', 'App\Http\Controllers\HomeController@index');
+use App\Http\Controllers\HomeController;
 Route::get('user/{id}',[HomeController::class,'show']);
