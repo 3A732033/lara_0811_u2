@@ -13,17 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 Route::get('/',function(){
-    return'welcome';
+    return redirect('r1');
 });
-Route::get('/',function(){
+
+Route::get('r1', function(){
+    return redirect('r2');
+});
+Route::get('r2', function(){
     return view('welcome');
-});
-Route::get('/', function () {
-    return redirect('welcome');
 });
 
 Route::get('hello/{name?}',function($name='Everybody'){
@@ -48,8 +46,8 @@ Route::group(['prefix'=>'admin'], function () {
     });
 });
 
-Route::get('/', function () {
-    return redirect('welcome');
-});
-use App\Http\Controllers\HomeController;
+//Route::get('/', function () {
+//    return redirect('welcome');
+//});
+//use App\Http\Controllers\HomeController;
 Route::get('user/{id}',[HomeController::class,'show']);
